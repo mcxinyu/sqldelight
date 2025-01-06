@@ -204,10 +204,11 @@ class MySqlTypeResolver(
 
     // region diy
     "inet_aton", "inet_ntoa", "inet6_aton", "inet6_ntoa" -> IntermediateType(TEXT)
+
     "json_contains", "json_unquote", "json_search", "json_extract",
     "json_merge", "json_merge_patch", "json_merge_preserve",
     "json_object", "json_array", "json_set", "json_replace"
-      -> encapsulatingType(exprList, TEXT)
+      -> encapsulatingType(exprList, TEXT).nullableIf(resolvedType(exprList[0]).javaType.isNullable)
     // endregion
 
     else -> null
