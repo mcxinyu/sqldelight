@@ -207,7 +207,9 @@ class MySqlTypeResolver(
 
     "json_contains", "json_unquote", "json_search", "json_extract",
     "json_merge", "json_merge_patch", "json_merge_preserve",
-    "json_object", "json_array", "json_set", "json_replace"
+    "json_object", "json_array", "json_set", "json_replace",
+
+    "st_geomfromtext", "st_area", "st_astext", "st_centroid", "st_asgeojson", "st_envelope", "st_distance_sphere",
       -> encapsulatingType(exprList, TEXT).nullableIf(resolvedType(exprList[0]).javaType.isNullable)
     // endregion
 
