@@ -206,8 +206,10 @@ class MySqlTypeResolver(
     "inet_aton", "inet_ntoa", "inet6_aton", "inet6_ntoa" -> IntermediateType(TEXT)
 
     "json_contains", "json_unquote", "json_search", "json_extract",
-    "json_merge", "json_merge_patch", "json_merge_preserve",
-    "json_object", "json_array", "json_set", "json_replace",
+    "json_merge","json_merge_preserve","json_set", "json_replace"
+      -> encapsulatingType(exprList, { true }, TEXT).nullableIf(true)
+
+    "json_merge_patch", "json_object", "json_array",
 
     "st_geomfromtext", "st_area", "st_astext", "st_centroid", "st_asgeojson", "st_envelope", "st_distance_sphere",
       -> encapsulatingType(exprList, TEXT).nullableIf(resolvedType(exprList[0]).javaType.isNullable)
