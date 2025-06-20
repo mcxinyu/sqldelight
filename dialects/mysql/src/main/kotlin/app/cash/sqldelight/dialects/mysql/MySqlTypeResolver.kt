@@ -207,7 +207,7 @@ class MySqlTypeResolver(
 
     "json_contains", "json_unquote", "json_search", "json_extract",
     "json_merge","json_merge_preserve","json_set", "json_replace"
-      -> encapsulatingType(exprList, { true }, TEXT).nullableIf(true)
+      -> encapsulatingType(exprList, TEXT).nullableIf(true)
 
     "json_merge_patch", "json_object", "json_array",
 
@@ -215,7 +215,7 @@ class MySqlTypeResolver(
       -> encapsulatingType(exprList, TEXT).nullableIf(resolvedType(exprList[0]).javaType.isNullable)
     // endregion
 
-    else -> null
+    else -> encapsulatingType(exprList, TEXT).asNullable()
   }
 
   override fun definitionType(typeName: SqlTypeName): IntermediateType = with(typeName) {
