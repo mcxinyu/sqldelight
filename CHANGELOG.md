@@ -1,5 +1,30 @@
 # Change Log
 
+## UNRELEASED
+
+### Added
+- [PostgreSQL Dialect] Add predicate to check whether SQL expression can be parsed as JSON (#5843 by [Griffio][griffio])
+- [PostgreSQL Dialect] Add limited support for PostgreSql Comment On statement (#5808 by [Griffio][griffio])
+- [MySQL Dialect] Add support for index visibility options (#5785 by [Oren Kislev][orenkislev-faire])
+- [PostgreSql Dialect] Add support for TSQUERY data type (#5779 by [Griffio][griffio])
+- [Gradle Plugin] Add support for version catalogs when adding modules (#5755 by [Michael Rittmeister][DRSchlaubi])
+
+### Changed
+- In-development snapshots are now published to the Central Portal Snapshots repository at https://central.sonatype.com/repository/maven-snapshots/.
+- [Compiler] Simplified default generated queries using constructor references (#5814 by [Jon Poulton][jonapoul])
+
+### Fixed
+- [Compiler] Fix stack overflow when using View containing Common Table Expression (#5928 by [Griffio][griffio])
+- [Gradle Plugin] Fix crash when opening SqlDelight tool window to add "New Connection" (#5906 by [Griffio][griffio])
+- [IntelliJ Plugin] Avoid threading-related crash in the copy-to-sqlite gutter action (#5901 by [Griffio][griffio])
+- [IntelliJ Plugin] Fix for PostgreSql dialect when using schema statements CREATE INDEX and CREATE VIEW (#5772 by [Griffio][griffio])
+- [Compiler] Fix FTS stack overflow when referencing columns (#5896 by [Griffio][griffio])
+- [Compiler] Fix With Recursive stack overflow (#5892 by [Griffio][griffio])
+- [Compiler] Fix Notify for Insert|Update|Delete Returning statements (#5851 by [Griffio][griffio])
+- [Compiler] Fix async result type for transaction blocks returning Long (#5836 by [Griffio][griffio])
+- [Compiler] Optimize SQL parameter binding from O(n²) to O(n) complexity (#5898 by [Chen Frenkel][chenf7])
+- [SQLite Dialect] Fix Sqlite 3.18 missing functions (#5759 by [Griffio][griffio])
+
 ## [2.1.0] - 2025-05-16
 
 ### Added
@@ -57,6 +82,7 @@
 - [Paging Extension] paging refresh initial load fix (#5615 by [Eva][evant])
 - [Paging Extension] Add MacOS native targets (#5324 by [Vitor Hugo Schwaab][vitorhugods])
 - [IntelliJ Plugin] K2 Support
+
 
 ## [2.0.2] - 2024-04-05
 
@@ -1148,3 +1174,5 @@ Initial release.
   [drewd]: https://github.com/drewd
   [orenkislev-faire]: https://github.com/orenkislev-faire
   [janbina]: https://github.com/janbina
+  [DRSchlaubi]: https://github.com/DRSchlaubi
+  [jonapoul]: https://github.com/jonapoul

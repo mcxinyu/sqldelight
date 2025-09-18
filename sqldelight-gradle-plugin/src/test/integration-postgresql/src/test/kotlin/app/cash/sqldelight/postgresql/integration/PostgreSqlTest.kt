@@ -898,7 +898,22 @@ class PostgreSqlTest {
   fun testContactTsVectorRank() {
     database.textSearchQueries.insertLiteral("the rain in spain")
     with(database.textSearchQueries.rank("rain | plain").executeAsList()) {
-      assertThat(first()).isEqualTo("0.030396355")
+      assertThat(first()).isEqualTo(0.030396355)
+    }
+  }
+
+  @Test
+  fun testContactTsQueryRank() {
+    database.textSearchQueries.insertLiteral("Peter Piper picked a peck of pickled peppers")
+    with(database.textSearchQueries.plainToRank("peck").executeAsList()) {
+      assertThat(first().rank).isEqualTo(0.06079271)
+    }
+  }
+
+  @Test
+  fun testQueryPartialComparison() {
+    with(database.textSearchQueries.partialComparison("postgraduate", "postgres:*").executeAsOne()) {
+      assertThat(this).isTrue()
     }
   }
 
@@ -1200,6 +1215,24 @@ class PostgreSqlTest {
     database.unnestQueries.insertBusiness("Donut Hut", arrayOf("N12345", "QB7536", "P31879"), arrayOf(6, 12, 18))
     with(database.unnestQueries.selectBusinessExists("P31879").executeAsList()) {
       assertThat(first().name).isEqualTo("Donut Hut")
+    }
+  }
+
+  @Test
+  fun testJsonChecks() {
+    database.jsonQueries.insertTestJsonCheck()
+    with(database.jsonQueries.selectJsonChecks().executeAsList()) {
+      assertThat(first().null_).isFalse()
+      assertThat(first().not_null_).isTrue()
+      assertThat(first().json_).isTrue()
+      assertThat(first().value_).isTrue()
+      assertThat(first().not_json_).isFalse()
+      assertThat(first().scalar_).isFalse()
+      assertThat(first().object_).isTrue()
+      assertThat(first().not_object_).isFalse()
+      assertThat(first().array_).isFalse()
+      assertThat(first().array_with_unq_key_).isFalse()
+      assertThat(first().array_without_unq_key_).isFalse()
     }
   }
 }
