@@ -1,8 +1,22 @@
 # Change Log
 
-## UNRELEASED
+## Unreleased
+
+Nothing yet!
+
+
+## [2.2.1] - 2025-11-13
+[2.2.1]: https://github.com/sqldelight/sqldelight/releases/tag/2.2.1
 
 ### Added
+- [PostgreSQL Dialect] Fix Postgres numeric/integer/biginteger type mapping (#5994 by [Griffio][griffio])
+- [Compiler] Improve the compiler error message to include source file location when a CAST is required (#5979 by [Griffio][griffio])
+- [PostgreSQL Dialect] Add support for Postgres JSON operator path extraction (#5971 by [Griffio][griffio])
+- [SQLite Dialect] Add Sqlite 3.35 support for MATERIALIZED query planner hint using Common Table Expressions (#5961 by [Griffio][griffio])
+- [PostgreSQL Dialect] Add support for MATERIALIZED query planner hint using Common Table Expressions (#5961 by [Griffio][griffio])
+- [PostgreSQL Dialect] Add support for Postgres JSON Aggregate FILTER (#5957 by [Griffio][griffio])
+- [PostgreSQL Dialect] Add support for Postgres Enums (#5935 by [Griffio][griffio])
+- [PostgreSQL Dialect] Add limited support for Postgres Triggers (#5932 by [Griffio][griffio])
 - [PostgreSQL Dialect] Add predicate to check whether SQL expression can be parsed as JSON (#5843 by [Griffio][griffio])
 - [PostgreSQL Dialect] Add limited support for PostgreSql Comment On statement (#5808 by [Griffio][griffio])
 - [MySQL Dialect] Add support for index visibility options (#5785 by [Oren Kislev][orenkislev-faire])
@@ -25,7 +39,15 @@
 - [Compiler] Optimize SQL parameter binding from O(n²) to O(n) complexity (#5898 by [Chen Frenkel][chenf7])
 - [SQLite Dialect] Fix Sqlite 3.18 missing functions (#5759 by [Griffio][griffio])
 
+
+## [2.2.0] - 2025-11-13
+[2.2.0]: https://github.com/sqldelight/sqldelight/releases/tag/2.2.0
+
+Failed release with partially published artifacts. Use 2.2.1!
+
+
 ## [2.1.0] - 2025-05-16
+[2.1.0]: https://github.com/sqldelight/sqldelight/releases/tag/2.1.0
 
 ### Added
 - [WASM Driver] Add support for wasmJs to web worker driver (#5534 by [Ilya Gulya][IlyaGulya])
@@ -85,6 +107,7 @@
 
 
 ## [2.0.2] - 2024-04-05
+[2.0.2]: https://github.com/sqldelight/sqldelight/releases/tag/2.0.2
 
 ### Added
 - [PostgreSQL Dialect] Add PostgreSQL STRING_AGG function (#4950 by [André Danielsson][anddani])
@@ -124,6 +147,7 @@
 - [IDE Plugin] Use the extensions array instead of stream (#5127)
 
 ## [2.0.1] - 2023-12-01
+[2.0.1]: https://github.com/sqldelight/sqldelight/releases/tag/2.0.1
 
 ### Added
 - [Compiler] Add support multi-column-expr when doing a SELECT (#4453 by [Adriel Martinez][Adriel-M])
@@ -173,6 +197,7 @@
 - [JDBC Driver] Fix JdbcSqliteDriver url parsing when choosing ConnectionManager type (#4656 by [Matthew Nelson][05nelsonm])
 
 ## [2.0.0] - 2023-07-26
+[2.0.0]: https://github.com/sqldelight/sqldelight/releases/tag/2.0.0
 
 ### Added
 - [MySQL Dialect] MySQL: support timestamp/bigint in IF expression (#4329 by [Mike Gershunovsky][shellderp])
@@ -196,6 +221,7 @@
 - [Compiler] Don't use virtual table as interface type (#4427 by [Philip Wedemann][hfhbd])
 
 ## [2.0.0-rc02] - 2023-06-27
+[2.0.0-rc02]: https://github.com/sqldelight/sqldelight/releases/tag/2.0.0-rc02
 
 ### Added
 - [MySQL Dialect] support lowercase date types and min and max on date types (#4243 by [Mike Gershunovsky][shellderp])
@@ -218,6 +244,7 @@
 - [Gradle Plugin] Gradle tweaks (#4222 by [Matthew Haughton][3flex])
 
 ## [2.0.0-rc01] - 2023-05-29
+[2.0.0-rc01]: https://github.com/sqldelight/sqldelight/releases/tag/2.0.0-rc01
 
 ### Added
 - [Paging] Add js browser target to paging extensions (#3843 by [Sean Proctor][sproctor])
@@ -269,6 +296,7 @@
 - [IDE Plugin] Use sql column name for migration generation instead of type name (#4112 by [Alexander Perfilyev][aperfilyev])
 
 ## [2.0.0-alpha05] - 2023-01-20
+[2.0.0-alpha05]: https://github.com/sqldelight/sqldelight/releases/tag/2.0.0-alpha05
 
 ### Added
 - [Paging] Multiplatform paging extension (by [Jeff Lockhart][jeffdgr8])
@@ -295,14 +323,17 @@
 - [Compiler] Fix duplicate generation of ${name}Indexes variables when using transactions (by [Andreas Sacher][sachera])
 
 ## [1.5.5] - 2023-01-20
+[1.5.5]: https://github.com/sqldelight/sqldelight/releases/tag/1.5.5
 
 This is a compatibility release for Kotlin 1.8 and IntelliJ 2021+, supporting JDK 17.
 
 ## [1.5.4] - 2022-10-06
+[1.5.4]: https://github.com/sqldelight/sqldelight/releases/tag/1.5.4
 
 This is a compatibility update for Kotlin 1.7.20 and AGP 7.3.0.
 
 ## [2.0.0-alpha04] - 2022-10-03
+[2.0.0-alpha04]: https://github.com/sqldelight/sqldelight/releases/tag/2.0.0-alpha04
 
 ### Breaking Changes
 
@@ -352,6 +383,7 @@ This is a compatibility update for Kotlin 1.7.20 and AGP 7.3.0.
 - [Paging] Don't statically swap Dispatchers.Main (#3428)
 
 ## [2.0.0-alpha03] - 2022-06-17
+[2.0.0-alpha03]: https://github.com/sqldelight/sqldelight/releases/tag/2.0.0-alpha03
 
 ### Breaking Changes
 
@@ -418,6 +450,7 @@ sqldelight {
 - [SQLite 3.35 Dialect] Only show an error when dropping an indexed column from the altered table (#3158 by [Eliezer Graber][eygraber])
 
 ## [2.0.0-alpha02] - 2022-04-13
+[2.0.0-alpha02]: https://github.com/sqldelight/sqldelight/releases/tag/2.0.0-alpha02
 
 ### Breaking Changes
 
@@ -485,6 +518,7 @@ sqldelight {
 - [IDE Plugin] Invalidate indexes when updating the dialect
 
 ## [2.0.0-alpha01] - 2022-03-31
+[2.0.0-alpha01]: https://github.com/sqldelight/sqldelight/releases/tag/2.0.0-alpha01
 
 This is the first alpha release for 2.0 and has some breaking changes. We expect more ABI breaking changes to come so don't publish any libraries with dependencies on this release (applications should be fine).
 
@@ -564,6 +598,8 @@ The currently supported dialects are `mysql-dialect`, `postgresql-dialect`, `hsq
 - [Compiler] Sort arguments before passing to a Query subtype (#2379 by [Alexander Perfilyev][aperfilyev])
 
 ## [1.5.3] - 2021-11-23
+[1.5.3]: https://github.com/sqldelight/sqldelight/releases/tag/1.5.3
+
 ### Added
 - [JDBC Driver] Open JdbcDriver for 3rd party driver implementations (#2672 by [Philip Wedemann][hfhbd])
 - [MySQL Dialect] Add missing functions for time increments (#2671 by [Sam Doward][sdoward])
@@ -580,6 +616,8 @@ The currently supported dialects are `mysql-dialect`, `postgresql-dialect`, `hsq
 
 
 ## [1.5.2] - 2021-10-12
+[1.5.2]: https://github.com/sqldelight/sqldelight/releases/tag/1.5.2
+
 ### Added
 - [Gradle Plugin] HMPP support (#2548 by [Martin Bonnin][martinbonnin])
 - [IDE Plugin] Add NULL comparison inspection (by [Alexander Perfilyev][aperfilyev])
@@ -627,6 +665,8 @@ The currently supported dialects are `mysql-dialect`, `postgresql-dialect`, `hsq
 
 
 ## [1.5.1] - 2021-07-16
+[1.5.1]: https://github.com/sqldelight/sqldelight/releases/tag/1.5.1
+
 ### Added
 - [PostgreSQL Dialect] PostgreSQL JSONB and ON Conflict Do Nothing (by [Andrew Stewart][satook])
 - [PostgreSQL Dialect] Adds support for PostgreSQL ON CONFLICT (column, ...) DO UPDATE (by [Andrew Stewart][satook])
@@ -665,12 +705,8 @@ The currently supported dialects are `mysql-dialect`, `postgresql-dialect`, `hsq
 
 
 ## [1.5.0] - 2021-04-23
-### Added
-- [SQLite Javascript Driver] Enable sqljs-driver publication (#1667 by [Derek Ellis][dellisd])
-- [Paging3 Extension] Extension for Android Paging 3 Library (#1786 by [Kevin Cianfarini][kevincianfarini])
+[1.5.0]: https://github.com/sqldelight/sqldelight/releases/tag/1.5.0
 
-
-## [1.5.0] - 2021-04-23
 ### Added
 - [SQLite Javascript Driver] Enable sqljs-driver publication (#1667 by [Derek Ellis][dellisd])
 - [Paging3 Extension] Extension for Android Paging 3 Library (#1786 by [Kevin Cianfarini][kevincianfarini])
@@ -735,6 +771,8 @@ The currently supported dialects are `mysql-dialect`, `postgresql-dialect`, `hsq
 Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work to improve the SQLDelight infrastructure this release.
 
 ## [1.4.4] - 2020-10-08
+[1.4.4]: https://github.com/sqldelight/sqldelight/releases/tag/1.4.4
+
 ### Added
 - [PostgreSQL Dialect] Support data-modifying statements in WITH
 - [PostgreSQL Dialect] Support substring function
@@ -767,6 +805,8 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 - [Coroutines Extension] Fix IR backend for coroutines-extensions (#1918 by [Derek Ellis][dellisd])
 
 ## [1.4.3] - 2020-09-04
+[1.4.3]: https://github.com/sqldelight/sqldelight/releases/tag/1.4.3
+
 ### Added
 - [MySQL Dialect] Add support for MySQL last_insert_id function (by [Kelvin Law][lawkai])
 - [PostgreSQL Dialect] Support SERIAL data type (by [Veyndan Stuart][VeyndanS] & [Felipe Lima][felipecsl])
@@ -787,6 +827,8 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 - [IDE Plugin] Parent can be null (#1857)
 
 ## [1.4.2] - 2020-08-27
+[1.4.2]: https://github.com/sqldelight/sqldelight/releases/tag/1.4.2
+
 ### Added
 - [Runtime] Support new JS IR backend
 - [Gradle Plugin] Add generateSqlDelightInterface Gradle task. (by [Niklas Baudy][vanniktech])
@@ -799,6 +841,8 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 - [MySQL Dialect] Added minute to mySqlFunctionType() (by [MaaxGr][maaxgr])
 
 ## [1.4.1] - 2020-08-21
+[1.4.1]: https://github.com/sqldelight/sqldelight/releases/tag/1.4.1
+
 ### Added
 - [Runtime] Support Kotlin 1.4.0 (#1859)
 
@@ -816,6 +860,8 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 - [HSQL Dialect] Adds `AUTO_INCREMENT` support to HSQL (by [Ryan Harter][rharter])
 
 ## [1.4.0] - 2020-06-22
+[1.4.0]: https://github.com/sqldelight/sqldelight/releases/tag/1.4.0
+
 ### Added
 - [MySQL Dialect] MySQL support (by [Jeff Gulbronson][JeffG] & [Veyndan Stuart][VeyndanS])
 - [PostgreSQL Dialect] Experimental PostgreSQL support (by [Veyndan Stuart][VeyndanS])
@@ -856,6 +902,7 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 - [Gradle Plugin] Explicitely use the file index we set (#1644)
 
 ## [1.3.0] - 2020-04-03
+[1.3.0]: https://github.com/sqldelight/sqldelight/releases/tag/1.3.0
 
 * New: [Gradle] Dialect property to specify with sql dialect to compile against.
 * New: [Compiler] #1009 Experimental support of the mysql dialect.
@@ -866,6 +913,7 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 * Fix: [IntelliJ] #1594 Fix path separator handling which broke Goto and Find Usages on Windows.
 
 ## [1.2.2] - 2020-01-22
+[1.2.2]: https://github.com/sqldelight/sqldelight/releases/tag/1.2.2
 
 * New: [Runtime] Support for Windows (mingW), tvOS, watchOS, and macOS architectures.
 * Fix: [Compiler] Return type of sum() should be nullable.
@@ -877,6 +925,7 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 
 
 ## [1.2.1] - 2019-12-11
+[1.2.1]: https://github.com/sqldelight/sqldelight/releases/tag/1.2.1
 
 * Fix: [Gradle] Kotlin Native 1.3.60 support.
 * Fix: [Gradle] #1287 Warning when syncing.
@@ -885,6 +934,7 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 * NOTE: The coroutine extension artifact requires kotlinx bintray maven repository be added to your buildscript.
 
 ## [1.2.0] - 2019-08-30
+[1.2.0]: https://github.com/sqldelight/sqldelight/releases/tag/1.2.0
 
 * New: [Runtime] Stable Flow api.
 * Fix: [Gradle] Kotlin Native 1.3.50 support.
@@ -894,6 +944,7 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 * Fix: [Gradle] #1266 Sporadic gradle build failure while having multiple database modules.
 
 ## [1.1.4] - 2019-07-11
+[1.1.4]: https://github.com/sqldelight/sqldelight/releases/tag/1.1.4
 
 * New: [Runtime] Experimental kotlin Flow api.
 * Fix: [Gradle] Kotlin/Native 1.3.40 compatibility.
@@ -906,10 +957,12 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 * Fix: [JVM Driver] #1370 Force JdbcSqliteDriver users to supply a DB URL.
 
 ## [1.1.3] - 2019-04-14
+[1.1.3]: https://github.com/sqldelight/sqldelight/releases/tag/1.1.3
 
 * Gradle Metadata 1.0 release.
 
 ## [1.1.2] - 2019-04-14
+[1.1.2]: https://github.com/sqldelight/sqldelight/releases/tag/1.1.2
 
 * New: [Runtime] #1267 Logging driver decorator.
 * Fix: [Compiler] #1254 Split string literals which are longer than 2^16 characters.
@@ -918,12 +971,14 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 * Fix: [Gradle] #1268 Running linkDebugFrameworkIos* tasks fail in recent versions.
 
 ## [1.1.1] - 2019-03-01
+[1.1.1]: https://github.com/sqldelight/sqldelight/releases/tag/1.1.1
 
 * Fix: [Gradle] Fix module dependency compilation for android projects.
 * Fix: [Gradle] #1246 Set up api dependencies in afterEvaluate.
 * Fix: [Compiler] Array types are properly printed.
 
 ## [1.1.0] - 2019-02-27
+[1.1.0]: https://github.com/sqldelight/sqldelight/releases/tag/1.1.0
 
 * New: [Gradle] #502 Allow specifying schema module dependencies.
 * Enhancement: [Compiler] #1111 Table errors are sorted before other errors.
@@ -931,16 +986,19 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 * Fix: [Compiler] #1218 docid propagates through triggers.
 
 ## [1.0.3] - 2019-01-30
+[1.0.3]: https://github.com/sqldelight/sqldelight/releases/tag/1.0.3
 
 * Enhancement: [Runtime] #1195 Native Driver/Runtime Arm32.
 * Enhancement: [Runtime] #1190 Expose the mapper from the Query type.
 
 ## [1.0.2] - 2019-01-26
+[1.0.2]: https://github.com/sqldelight/sqldelight/releases/tag/1.0.2
 
 * Fix: [Gradle Plugin] Update to kotlin 1.3.20.
 * Fix: [Runtime] Transactions no longer swallow exceptions.
 
 ## [1.0.1] - 2019-01-21
+[1.0.1]: https://github.com/sqldelight/sqldelight/releases/tag/1.0.1
 
 * Enhancement: [Native Driver] Allow passing directory name to DatabaseConfiguration.
 * Enhancement: [Compiler] #1173 Files without a package fail compilation.
@@ -950,6 +1008,7 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 * Fix: [Compiler] #1167 Throws an exception when trying to parse complex SQL statements with UNION and SELECT.
 
 ## [1.0.0] - 2019-01-08
+[1.0.0]: https://github.com/sqldelight/sqldelight/releases/tag/1.0.0
 
 * New: Complete overhaul of generated code, now in kotlin.
 * New: RxJava2 extensions artifact.
@@ -959,6 +1018,7 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 * New: Transaction API.
 
 ## [0.7.0] - 2018-02-12
+[0.7.0]: https://github.com/sqldelight/sqldelight/releases/tag/0.7.0
 
  * New: Generated code has been updated to use the Support SQLite library only. All queries now generate statement objects instead of a raw strings.
  * New: Statement folding in the IDE.
@@ -969,6 +1029,7 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 
 
 ## [0.6.1] - 2017-03-22
+[0.6.1]: https://github.com/sqldelight/sqldelight/releases/tag/0.6.1
 
  * New: Delete Update and Insert statements without arguments get compiled statements generated.
  * Fix: Using clause within a view used in a subquery doesn't error.
@@ -976,6 +1037,7 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
  * Fix: Subqueries can be used in expressions that check against arguments.
 
 ## [0.6.0] - 2017-03-06
+[0.6.0]: https://github.com/sqldelight/sqldelight/releases/tag/0.6.0
 
  * New: Select queries are now exposed as a `SqlDelightStatement` factory instead of string constants.
  * New: Query JavaDoc is now copied to statement and mapper factories.
@@ -986,6 +1048,7 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
  * Gradle 3.3 or newer is required for this release.
 
 ## [0.5.1] - 2016-10-24
+[0.5.1]: https://github.com/sqldelight/sqldelight/releases/tag/0.5.1
 
  * New: Compiled statements extend an abstract type.
  * Fix: Primitive types in parameters will be boxed if nullable.
@@ -993,6 +1056,7 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
  * Fix: Escaped column names are marshalled correctly.
 
 ## [0.5.0] - 2016-10-19
+[0.5.0]: https://github.com/sqldelight/sqldelight/releases/tag/0.5.0
 
  * New: SQLite arguments can be passed typesafely through the Factory
  * New: IntelliJ plugin performs formatting on .sq files
@@ -1002,6 +1066,7 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
  * Fix: Gradle plugin doesn't crash trying to print exceptions.
 
 ## [0.4.4] - 2016-07-20
+[0.4.4]: https://github.com/sqldelight/sqldelight/releases/tag/0.4.4
 
  * New: Native support for shorts as column java type
  * New: Javadoc on generated mappers and factory methods
@@ -1010,6 +1075,7 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
  * Fix: WITH RECURSIVE no longer crashes plugin
 
 ## [0.4.3] - 2016-07-07
+[0.4.3]: https://github.com/sqldelight/sqldelight/releases/tag/0.4.3
 
  * New: Compilation errors link to source file.
  * New: Right-click to copy SQLDelight code as valid SQLite.
@@ -1022,17 +1088,20 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
  * Fix: SQLite keywords can be used in packages.
 
 ## [0.4.2] - 2016-06-16
+[0.4.2]: https://github.com/sqldelight/sqldelight/releases/tag/0.4.2
 
  * New: Marshal can be created from the factory.
  * Fix: IntelliJ plugin generates factory methods with proper generic order.
  * Fix: Function names can use any casing.
 
 ## [0.4.1] - 2016-06-14
+[0.4.1]: https://github.com/sqldelight/sqldelight/releases/tag/0.4.1
 
  * Fix: IntelliJ plugin generates classes with proper generic order.
  * Fix: Column definitions can use any casing.
 
 ## [0.4.0] - 2016-06-14
+[0.4.0]: https://github.com/sqldelight/sqldelight/releases/tag/0.4.0
 
  * New: Mappers are generated per query instead of per table.
  * New: Java types can be imported in .sq files.
@@ -1041,6 +1110,7 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
  * Fix: Uppercase column names and java keyword column names do not error.
 
 ## [0.3.2] - 2016-05-14
+[0.3.2]: https://github.com/sqldelight/sqldelight/releases/tag/0.3.2
 
  * New: Autocompletion and find usages now work for views and aliases.
  * Fix: Compile-time validation now allows functions to be used in selects.
@@ -1049,12 +1119,14 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 
 
 ## [0.3.1] - 2016-04-27
+[0.3.1]: https://github.com/sqldelight/sqldelight/releases/tag/0.3.1
 
   * Fix: Interface visibility changed back to public to avoid Illegal Access runtime exceptions from method references.
   * Fix: Subexpressions are evaluated properly.
 
 
 ## [0.3.0] - 2016-04-26
+[0.3.0]: https://github.com/sqldelight/sqldelight/releases/tag/0.3.0
 
   * New: Column definitions use SQLite types and can have additional 'AS' constraint to specify java type.
   * New: Bug reports can be sent from the IDE.
@@ -1064,12 +1136,14 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 
 
 ## [0.2.2] - 2016-03-07
+[0.2.2]: https://github.com/sqldelight/sqldelight/releases/tag/0.2.2
 
  * New: Compile-time validation of the columns used by insert, update, delete, index, and trigger statements.
  * Fix: Don't crash IDE plugin on file move/create.
 
 
 ## [0.2.1] - 2016-03-07
+[0.2.1]: https://github.com/sqldelight/sqldelight/releases/tag/0.2.1
 
  * New: Ctrl+`/` (Cmd+`/` on OSX) toggles comment of the selected line(s).
  * New: Compile-time validation of the columns used by SQL queries.
@@ -1077,6 +1151,7 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 
 
 ## [0.2.0] - 2016-02-29
+[0.2.0]: https://github.com/sqldelight/sqldelight/releases/tag/0.2.0
 
  * New: Added copy constructor to Marshal class.
  * New: Update to Kotlin 1.0 final.
@@ -1087,17 +1162,20 @@ Also just a general shoutout to [Matthew Haughton][3flex] who did a lot of work 
 
 
 ## [0.1.2] - 2016-02-13
+[0.1.2]: https://github.com/sqldelight/sqldelight/releases/tag/0.1.2
 
  * Fix: Remove code which prevented the Gradle plugin from being used in most projects.
  * Fix: Add missing compiler dependency on the Antlr runtime.
 
 
 ## [0.1.1] - 2016-02-12
+[0.1.1]: https://github.com/sqldelight/sqldelight/releases/tag/0.1.1
 
  * Fix: Ensure the Gradle plugin points to the same version of the runtime as itself.
 
 
 ## [0.1.0] - 2016-02-12
+[0.1.0]: https://github.com/sqldelight/sqldelight/releases/tag/0.1.0
 
 Initial release.
 
