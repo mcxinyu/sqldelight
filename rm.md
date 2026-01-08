@@ -9,15 +9,15 @@
 ### 发布到本地
 
 ```shell
-./gradlew sqldelight:dialects:mysql:publishMavenPublicationToInstallLocallyRepository
+./gradlew :dialects:mysql:publishMavenPublicationToInstallLocallyRepository
 
-./gradlew sqldelight:sqldelight-compiler:dialect:publishMavenPublicationToInstallLocallyRepository
+./gradlew :sqldelight-compiler:dialect:publishMavenPublicationToInstallLocallyRepository
 ```
 
 ### 发布到云端
 
 ```shell
-./gradlew sqldelight:dialects:mysql:publishMavenPublicationToInternalRepository
+./gradlew :dialects:mysql:publishMavenPublicationToInternalRepository
 
-./gradlew sqldelight:sqldelight-compiler:dialect:publishMavenPublicationToInternalRepository
+./gradlew :sqldelight-compiler:dialect:publishMavenPublicationToInternalRepository
 ```

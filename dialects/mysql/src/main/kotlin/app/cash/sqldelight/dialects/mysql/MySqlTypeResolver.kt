@@ -215,7 +215,7 @@ class MySqlTypeResolver(
       -> encapsulatingType(exprList, TEXT).nullableIf(resolvedType(exprList[0]).javaType.isNullable)
     // endregion
 
-    else -> encapsulatingType(exprList, TEXT).asNullable()
+    else -> null
   }
 
   override fun definitionType(typeName: SqlTypeName): IntermediateType = with(typeName) {
