@@ -83,6 +83,7 @@ class MySqlTypeResolver(
           )
         }
       }
+
       else -> parentResolver.resolvedType(expr)
     }
   }
@@ -120,6 +121,7 @@ class MySqlTypeResolver(
       TEXT,
       BLOB,
     )
+
     "least" -> encapsulatingTypePreferringKotlin(
       exprList,
       BLOB,
@@ -135,16 +137,30 @@ class MySqlTypeResolver(
       BIG_INT,
       REAL,
     )
+
     "concat" -> encapsulatingType(exprList, TEXT)
     "last_insert_id" -> IntermediateType(INTEGER)
     "row_count" -> IntermediateType(INTEGER)
     "microsecond", "second", "minute", "hour", "day", "week", "month", "year" -> IntermediateType(
       INTEGER,
     )
+
     "sin", "cos", "tan" -> IntermediateType(REAL)
-    "coalesce", "ifnull" -> encapsulatingTypePreferringKotlin(exprList, TINY_INT, SMALL_INT, MySqlType.INTEGER, INTEGER, BIG_INT, REAL, TEXT, BLOB, nullability = { exprListNullability ->
-      exprListNullability.all { it }
-    })
+    "coalesce", "ifnull" -> encapsulatingTypePreferringKotlin(
+      exprList,
+      TINY_INT,
+      SMALL_INT,
+      MySqlType.INTEGER,
+      INTEGER,
+      BIG_INT,
+      REAL,
+      TEXT,
+      BLOB,
+      nullability = { exprListNullability ->
+        exprListNullability.all { it }
+      },
+    )
+
     "max" -> encapsulatingTypePreferringKotlin(
       exprList,
       TINY_INT,
@@ -160,6 +176,7 @@ class MySqlTypeResolver(
       TEXT,
       BLOB,
     ).asNullable()
+
     "min" -> encapsulatingTypePreferringKotlin(
       exprList,
       BLOB,
@@ -175,6 +192,7 @@ class MySqlTypeResolver(
       BIG_INT,
       REAL,
     ).asNullable()
+
     "sum" -> {
       val type = resolvedType(exprList.single())
       if (type.dialectType == REAL) {
@@ -183,6 +201,7 @@ class MySqlTypeResolver(
         IntermediateType(INTEGER).asNullable()
       }
     }
+
     "unix_timestamp" -> IntermediateType(TEXT)
     "to_seconds" -> IntermediateType(INTEGER)
     "json_arrayagg" -> IntermediateType(TEXT)
@@ -196,6 +215,20 @@ class MySqlTypeResolver(
     "percent_rank" -> IntermediateType(REAL).asNullable()
     "rank" -> IntermediateType(BIG_INT)
     "row_number" -> IntermediateType(BIG_INT)
+
+    // region diy
+    "inet_aton", "inet_ntoa", "inet6_aton", "inet6_ntoa" -> IntermediateType(TEXT)
+
+    "json_contains", "json_unquote", "json_search", "json_extract",
+    "json_merge","json_merge_preserve","json_set", "json_replace"
+      -> encapsulatingType(exprList, TEXT).nullableIf(true)
+
+    "json_merge_patch", "json_object", "json_array",
+
+    "st_geomfromtext", "st_area", "st_astext", "st_centroid", "st_asgeojson", "st_envelope", "st_distance_sphere",
+      -> encapsulatingType(exprList, TEXT).nullableIf(resolvedType(exprList[0]).javaType.isNullable)
+    // endregion
+
     else -> null
   }
 
@@ -215,11 +248,13 @@ class MySqlTypeResolver(
             else -> throw IllegalArgumentException("Unknown date type ${dateDataType!!.text}")
           }
         }
+
         tinyIntDataType != null -> if (tinyIntDataType!!.text == "BOOLEAN") {
           MySqlType.TINY_INT_BOOL
         } else {
           TINY_INT
         }
+
         smallIntDataType != null -> SMALL_INT
         mediumIntDataType != null -> MySqlType.INTEGER
         intDataType != null -> MySqlType.INTEGER
